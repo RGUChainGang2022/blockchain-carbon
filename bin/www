@@ -5,7 +5,6 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('blockchain-carbon:server');
 var http = require('http');
 const config = require('../config.json');
 
@@ -66,5 +65,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }
