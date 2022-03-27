@@ -7,9 +7,9 @@
   "node_key": "",
   "node_identity": "",
   "peers": [
-    "https://carbon.carbonarachain.info/",
-    "https://oxygen-1.carbonarachain.info/",
-    "https://oxygen-2.carbonarachain.info/"
+    "https://carbon.cchain.me/",
+    "https://oxygen-1.cchain.me/",
+    "https://oxygen-2.cchain.me/"
   ],
   "sync_frequency": 5,
   "node_name": "CarbonChain",

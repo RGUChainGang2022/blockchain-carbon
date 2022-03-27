@@ -50,7 +50,7 @@ function addBlockToChain(json = null) {
     previousBlockHash = sha256Hash.update(JSON.stringify(previousBlock)).digest("hex");
   }
 
-  if (json.data && json.signature) {
+  if (json.data && json.signature && json.timestamp) {
     try {
       // Use dhive to recover the public key from the signature
       const actualKey = dhive.Signature.fromString(json.signature).recover(dhive.cryptoUtils.sha256(JSON.stringify(json.data)));
