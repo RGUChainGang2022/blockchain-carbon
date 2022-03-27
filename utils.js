@@ -89,7 +89,16 @@ function addBlockToChain(json = null) {
   }
 }
 
-//const mK = generateMasterKey();
-//console.log(mK.toWif(), mK.toPublic().toString());
+function signatureMatches(signature, publicKeyWif, data) {
+  try {
+    const actualKey = dhive.Signature.fromString(signature).recover(dhive.cryptoUtils.sha256(data));
 
-module.exports = {generateMasterKey, fromWif, Blocks, addBlockToChain};
+    console.log(actualKey.toString(), publicKeyWif, data);
+
+    return actualKey.toString() === publicKeyWif;
+  } catch (e) {
+    return false;
+  }
+}
+
+module.exports = {generateMasterKey, fromWif, Blocks, addBlockToChain, signatureMatches};

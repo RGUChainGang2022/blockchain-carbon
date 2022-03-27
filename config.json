@@ -1,12 +1,18 @@
 {
   "network_key_public": "STM587CxL5NywU9GQg2icUQQVrLHdB5vyaUW7xXghXGzVHsNYt8GQ",
-  "network_id": "0xb055babe",
-  "version": "0.0.1",
-  "network_name": "RGUcrypToken",
-  "network_type": "testnet",
-  "node_key": "5JuaTUoJzb6MJyUcCfxTB1P4KCTTNXJ3tcQ66ju587psCkkf1u3",
-  "node_identity": "STM7Kpt2vp2R18qTEVCP7bLE9GfzkztVBFUdtZwNBHYoTqHxPNygE",
+  "network_id": "0xcarb0bad",
+  "version": "1.0.0",
+  "network_name": "RGUCarbonChain",
+  "network_type": "mainnet",
+  "node_key": "",
+  "node_identity": "",
   "peers": [
+    "https://carbon.carbonarachain.info/",
+    "https://oxygen-1.carbonarachain.info/",
+    "https://oxygen-2.carbonarachain.info/"
   ],
-  "sync_frequency": 5
+  "sync_frequency": 5,
+  "node_name": "CarbonChain",
+  "node_description": "Hello, I am a CarbonChain node!",
+  "node_port": 3000
 }
