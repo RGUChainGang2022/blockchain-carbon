@@ -77,8 +77,11 @@ async function getBlocks(peer) {
                             let previousBlockHash = "0000000000000000000000000000000000000000000000000000000000000000";
 
                             if (block.number > 0) {
-                                previousBlockHash = sha256Hash.update(JSON.stringify(previousBlock)).digest("hex");
+                                previousBlockHash = sha256Hash.update(JSON.stringify(previousBlock.block)).digest("hex");
                             }
+
+                            console.log("Previous block hash:", previousBlockHash);
+                            console.log("Block hash:", blockPreviousBlock);
 
                             if (previousBlockHash === blockPreviousBlock) {
                                 console.log("Previous block is valid");
