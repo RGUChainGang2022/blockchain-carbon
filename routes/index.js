@@ -16,6 +16,10 @@ if (config.node_key === "" || config.node_identity === "") {
     process.exit(1);
 }
 
+const previousBlock = Blocks.find({number: 0}).run();
+console.log(previousBlock);
+
+
 function shuffle(array) {
     let counter = array.length;
 
