@@ -61,11 +61,11 @@ async function getBlocks(peer) {
                     // Check if the block is valid
                     // Use dHive signature API to verify the signature recovers into the witness
                     if (signatureMatches(blockSignature, blockWitness, JSON.stringify(block.block))) {
-                        console.log("Block " + block.block.id + " is valid");
+                        console.log("Block " + block.number + " is valid");
                         // Check transaction signatures
                         const {signature, data} = block.block.transactions[0];
                         if (signatureMatches(signature, config.network_key_public, JSON.stringify(data))) {
-                            console.log("Transaction " + JSON.stringify(data) + " is valid");
+                            console.log("Transaction is valid");
                             // Check if the previous block is valid
                             const previousBlock = utils.Blocks.find({number: block.number - 1}).run();
 
