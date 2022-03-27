@@ -7,12 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('blockchain-carbon:server');
 var http = require('http');
+const config = require('../config.json');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(config.node_port);
 app.set('port', port);
 
 /**
