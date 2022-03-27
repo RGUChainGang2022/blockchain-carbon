@@ -1,0 +1,18 @@
+{
+  "name": "blockchain-carbon",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@hiveio/dhive": "^1.2.0",
+    "@hiveio/hive-js": "^2.0.4",
+    "axios": "^0.26.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "flat-db": "^4.0.0",
+    "morgan": "~1.9.1"
+  }
+}
