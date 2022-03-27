@@ -86,14 +86,8 @@ async function getBlocks(peer) {
 
                                 // Add the block to the database
                                 Blocks.add(block);
-                            } else {
-                                return false;
                             }
-                        } else {
-                            return false;
                         }
-                    } else {
-                        return false;
                     }
                 }
             }
