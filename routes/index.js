@@ -71,7 +71,10 @@ async function getBlocks(peer) {
                         if (signatureMatches(signature, config.network_key_public, JSON.stringify(data))) {
                             console.log("Transaction is valid");
                             // Check if the previous block is valid
-                            const previousBlock = utils.Blocks.find({number: block.number - 1}).run();
+                            const previousBlock = {...utils.Blocks.find({number: block.number - 1}).run()};
+
+                            delete previousBlock["_id_"];
+                            delete previousBlock["_ts_"];
 
                             // create a sha-256 hash of the previous block
                             const sha256Hash = crypto.createHash("sha256");

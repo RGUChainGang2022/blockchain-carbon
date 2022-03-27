@@ -40,7 +40,10 @@ function addBlockToChain(json = null) {
   const count = Blocks.count();
 
   if (count > 0) {
-    const previousBlock = Blocks.find({number: count - 1}).run();
+    const previousBlock = {...Blocks.find({number: count - 1}).run()};
+
+    delete previousBlock["_id_"];
+    delete previousBlock["_ts_"];
 
     // create a sha-256 hash of the previous block
     const sha256Hash = crypto.createHash("sha256");
