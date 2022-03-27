@@ -16,10 +16,6 @@ if (config.node_key === "" || config.node_identity === "") {
     process.exit(1);
 }
 
-const previousBlock = Blocks.find({number: 0}).run();
-console.log(previousBlock);
-
-
 function shuffle(array) {
     let counter = array.length;
 
@@ -71,10 +67,7 @@ async function getBlocks(peer) {
                         if (signatureMatches(signature, config.network_key_public, JSON.stringify(data))) {
                             console.log("Transaction is valid");
                             // Check if the previous block is valid
-                            const previousBlock = {...utils.Blocks.find({number: block.number - 1}).run()};
-
-                            delete previousBlock["_id_"];
-                            delete previousBlock["_ts_"];
+                            const previousBlock = utils.Blocks.find({number: block.number - 1}).run();
 
                             // create a sha-256 hash of the previous block
                             const sha256Hash = crypto.createHash("sha256");
@@ -84,11 +77,11 @@ async function getBlocks(peer) {
                             let previousBlockHash = "0000000000000000000000000000000000000000000000000000000000000000";
 
                             if (block.number > 0) {
-                                previousBlockHash = sha256Hash.update(JSON.stringify(previousBlock)).digest("hex");
-                            }
+                                delete previousBlock[0]["_id_"];
+                                delete previousBlock[0]["_ts_"];
 
-                            console.log("Previous block hash:", previousBlockHash);
-                            console.log("Block hash:", blockPreviousBlock);
+                                previousBlockHash = sha256Hash.update(JSON.stringify(previousBlock[0])).digest("hex");
+                            }
 
                             if (previousBlockHash === blockPreviousBlock) {
                                 console.log("Previous block is valid");
@@ -102,7 +95,7 @@ async function getBlocks(peer) {
                 }
             }
         }
-    } catch (e) {}
+    } catch (e) {console.log(e)}
 }
 
 const tim = async () => {
